@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Editare date carti{% endblock %}
+
+{% block header %} Editati datele cartii {% endblock %}
+
+{% block body %}
+    <a href="{{ url_for('index') }}" class="btn btn-primary">Inapoi Acasa</a>
+    <div class="card-body">
+        <form action="{{ url_for('aplica_editarile') }}" method="POST">
+            <div class="form-group">
+                <label for="titlu">Titlul Cartii</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">#</div>
+                    </div>
+                    <input type="hidden" name="id" value="{{ data.id }}">
+                    <input type="text" id="titlu" class="form_control" placeholder="Introduceti titlul cartii" name="titlu" value="{{ data.titlu }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="autor">Autorul Cartii</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">#</div>
+                    </div>
+                    <input type="text" id="autor" class="form_control" placeholder="Introduceti autorul cartii" name="autor" value="{{ data.autor }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="gen">Genul Cartii</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">#</div>
+                    </div>
+                    <input type="text" id="gen" class="form_control" placeholder="Introduceti genul cartii" name="gen" value="{{ data.gen }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="editura">Editura Cartii</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">#</div>
+                    </div>
+                    <input type="text" id="editura" class="form_control" placeholder="Introduceti editura cartii" name="editura" value="{{ data.editura }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="anpublicare">Anul de publicare a cartii</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">#</div>
+                    </div>
+                    <input type="number" id="anpublicare" class="form_control" placeholder="Anul de publicare cartii" name="anpublicare" value="{{ data.anpublicare }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="rating">Ratingul cartii</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">#</div>
+                    </div>
+                    <input type="text" id="rating" class="form_control" placeholder="Introduceti ratingul cartii" name="rating" value="{{ data.rating }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success btn-sm" name="submit">Submit</button>
+                <button type="reset" class="btn btn-danger btn-sm">Cancel</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

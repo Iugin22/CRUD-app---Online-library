@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %} List Data {% endblock %}
+
+{% block header %} Table Data {% endblock %}
+
+{% block body %}
+    <a href="{{ url_for('adaugare_date') }}" class="btn btn-primary" style="margin-bottom: 1rem;">Adauga Carte</a>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Titlu</th>
+                <th scope="col">Autor</th>
+                <th scope="col">Gen</th>
+                <th scope="col">Editura</th>
+                <th scope="col">Anul Publicarii</th>
+                <th scope="col">Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for carte in data %}
+                <tr>
+                    <th scope="row">{{ carte.id }}</th>
+                    <td>{{ carte.titlu }}</td>
+                    <td>{{ carte.autor }}</td>
+                    <td>{{ carte.gen }}</td>
+                    <td>{{ carte.editura }}</td>
+                    <td>{{ carte.anpublicare }}</td>
+                    <td>{{ carte.rating }}</td>
+                    <td>
+                        <a href="{{ url_for('editare_date', id = carte.id) }}" class="btn btn-warning">Edit</a>
+                        <a href="{{ url_for('sterge_carte', id = carte.id) }}" class="btn btn-danger" onclick="return confirm('Sunteti sigur/a ca vreti sa stergeti aceasta carte?')">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
